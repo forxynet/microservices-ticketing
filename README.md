@@ -7,3 +7,8 @@ tsc --init
 docker build -t dynamicq/auth .
 docker push dynamicq/auth
 
+
+****
+kubectl --namespace default scale statefulset --replicas 0
+kubectl delete all --all --namespace default
+****
