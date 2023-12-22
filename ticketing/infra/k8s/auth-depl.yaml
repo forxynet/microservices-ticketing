@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: auth
-        image: dynamicq/auth
+        image: rallycoding/auth
 ---
 apiVersion: v1
 kind: Service
@@ -28,4 +28,3 @@ spec:
     protocol: TCP
     port: 3000
     targetPort: 3000
-
