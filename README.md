@@ -16,3 +16,6 @@ kubectl delete all --all --namespace default
 
 **gcloud**
 gcloud container clusters get-credentials ticketing-dev --location us-central1
+
+skaffold dev
+
