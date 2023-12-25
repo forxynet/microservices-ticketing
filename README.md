@@ -12,3 +12,7 @@ docker push dynamicq/auth
 kubectl --namespace default scale statefulset --replicas 0
 kubectl delete all --all --namespace default
 ****
+
+
+**gcloud**
+gcloud container clusters get-credentials ticketing-dev --location us-central1
