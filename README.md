@@ -17,6 +17,8 @@ kubectl delete all --all --namespace default
 **gcloud**
 gcloud container clusters get-credentials ticketing-dev --location us-central1
 
+
+install skaffold
 skaffold dev
 
 kubectl create secret generic jwt-secret --from-literal=JWT_KEY=asdf
