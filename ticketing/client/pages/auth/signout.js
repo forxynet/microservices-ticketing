@@ -1,48 +1,18 @@
-import { useState } from 'react';
+import { useEffect } from 'react';
 import Router from 'next/router';
 import useRequest from '../../hooks/use-request';
 
 export default () => {
-	const [email, setEmail] = useState('');
-	const [password, setPassword] = useState('');
-	const { doRequest, errors } = useRequest({
+	const { doRequest } = useRequest({
 		url: '/api/users/signout',
 		method: 'post',
-		body: {
-			email,
-			password,
-		},
+		body: {},
 		onSuccess: () => Router.push('/'),
 	});
 
-	const onSubmit = async (event) => {
-		event.preventDefault();
+	useEffect(() => {
+		doRequest();
+	}, []);
 
-		await doRequest();
-	};
-
-	return (
-		<form onSubmit={onSubmit}>
-			<h1>Sign Out</h1>
-			<div className='form-group'>
-				<label>Email Address</label>
-				<input
-					value={email}
-					onChange={(e) => setEmail(e.target.value)}
-					className='form-control'
-				/>
-			</div>
-			<div className='form-group'>
-				<label>Password</label>
-				<input
-					value={password}
-					onChange={(e) => setPassword(e.target.value)}
-					type='password'
-					className='form-control'
-				/>
-			</div>
-			{errors}
-			<button className='btn btn-primary'>Sign Out</button>
-		</form>
-	);
+	return <div>Signing you out...</div>;
 };
